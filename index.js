@@ -1,11 +1,19 @@
 const hbs = require('express-handlebars');
-const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const path = require('path');
 const express = require('express');
 
 const app = express();
 
 require('dotenv').config();
+
+mongoose.connect(`mongodb+srv://dean:${DB_PASS}@cluster0-aeu8n.mongodb.net/test?retryWrites=true&w=majority`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 const index = require('./routes/index');
 

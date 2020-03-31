@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-let session = Schema({
+const session = Schema({
     expires: {type: Date, required: true},
     session: {type: String, required: true}
 });

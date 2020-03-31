@@ -5,16 +5,16 @@ const user = Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true, unique: false},
     createdOn: {type: Date, required: true, unique: false},
-    upVotes: {type: Number, required: false, unique: false}
+    upVotes: {type: Number, required: true, unique: false}
 });
 
-user.statics.findByLogin = (login) => {
+user.statics.findByLogin = async (login) => {
     let user = await this.findOne({userName: login});
-    
+
     if (!user) {
         user = await this.findOne({email: login});
     }
-    
+
     return user;
 }
 

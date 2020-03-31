@@ -11,9 +11,12 @@ exports.create = async(req, res) => {
         userName: userName,
         email: email,
         password: password,
-        createdOn: Date.now()
+        createdOn: Date.now(),
+        upVotes: 0
     });
 
     user.save();
+
+    res.redirect('/');
 }
 

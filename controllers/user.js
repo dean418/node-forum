@@ -31,3 +31,23 @@ exports.create = async(req, res) => {
     res.redirect('/');
 }
 
+exports.getLogin = (req, res) => {
+    res.render('login');
+}
+
+exports.postLogin = async(req, res) => {
+    let {login, password} = req.body;
+    let user = await UserModel.findByLogin(login);
+
+    if (!user) {
+        res.render('login', {error: 'A user wasn\'t found with that username or email'});
+        return;
+    }
+
+    if (user.password !== password) {
+        res.render('login', {error: 'The entered password is incorrect'});
+        return;
+    }
+
+    res.redirect('/');
+}

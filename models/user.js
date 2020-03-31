@@ -9,10 +9,10 @@ const user = Schema({
 });
 
 user.statics.findByLogin = async function(login) {
-    let user = await this.find({userName: login});
+    let user = await this.findOne({userName: login});
 
     if (!user) {
-        user = await this.find({email: login});
+        user = await this.findOne({email: login});
     }
 
     return user;

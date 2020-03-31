@@ -1,16 +1,47 @@
-const loaders = require('./loaders/init');
+const bodyParser = require('body-parser');
+const hbs = require('express-handlebars');
+const path = require('path');
+const {nanoid} = require('nanoid');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const express = require('express');
+
+const app = express();
 
 require('dotenv').config();
 
-const startServer = async () => {
-    const app = express();
+const index = require('./routes/index');
+const user = require('./routes/user');
 
-    await loaders.init(app);
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
-    app.listen(process.env.PORT, (err) => {
-        console.log(`server listening on port: ${process.env.PORT}`);
-    });
-}
+app.use(express.static(path.join(__dirname + 'public')));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-startServer();
+app.engine('.hbs', hbs({
+    defaultLayout: 'layout',
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection}),
+    genid: () => {
+        return nanoid();
+    }
+}));
+
+app.use('/', index);
+app.use('/user', user);
+
+app.listen(process.env.PORT, (err) => {
+    console.log(`server listening on port: ${process.env.PORT}`);
+});

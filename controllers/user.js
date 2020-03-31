@@ -15,8 +15,19 @@ exports.create = async(req, res) => {
         upVotes: 0
     });
 
-    user.save();
+    user.save().catch((err) => {
+        let field = Object.keys(err.keyValue)[0];
+        let error = '';
 
+        if (field == 'userName') {
+            error = 'user-name'
+        } else {
+            error = 'email'
+        }
+
+        res.render('signup', {error : `the provided ${error} already exists!`})
+        return;
+    });
     res.redirect('/');
 }
 

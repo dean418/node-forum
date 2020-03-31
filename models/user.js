@@ -8,11 +8,11 @@ const user = Schema({
     upVotes: {type: Number, required: true, unique: false}
 });
 
-user.statics.findByLogin = async (login) => {
-    let user = await this.findOne({userName: login});
+user.statics.findByLogin = async function(login) {
+    let user = await this.find({userName: login});
 
     if (!user) {
-        user = await this.findOne({email: login});
+        user = await this.find({email: login});
     }
 
     return user;

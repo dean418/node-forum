@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const UserModel = require('../models/user');
 
 exports.getSignup = (req, res) => {
@@ -7,10 +9,12 @@ exports.getSignup = (req, res) => {
 exports.create = async(req, res) => {
     let {userName, email, password} = req.body;
 
+    let hash = await bcrypt.hash(password, 12);
+
     let user = new UserModel({
         userName: userName,
         email: email,
-        password: password,
+        password: hash,
         createdOn: Date.now(),
         upVotes: 0
     });
@@ -35,8 +39,6 @@ exports.create = async(req, res) => {
 
     req.session.userName = userName;
     req.session.save();
-    console.log('hello');
-
     res.redirect('/');
 }
 
@@ -53,7 +55,7 @@ exports.postLogin = async(req, res) => {
         return;
     }
 
-    if (user.password !== password) {
+    if (!await bcrypt.compare(password, user.password)) {
         res.render('login', {error: 'The entered password is incorrect'});
         return;
     }

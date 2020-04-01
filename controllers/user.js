@@ -35,6 +35,7 @@ exports.create = async(req, res) => {
 
     req.session.userName = userName;
     req.session.save();
+    console.log('hello');
 
     res.redirect('/');
 }
@@ -57,8 +58,12 @@ exports.postLogin = async(req, res) => {
         return;
     }
 
-    req.session.userName = userName;
+    req.session.login = login;
     req.session.save();
 
-    res.redirect('/');
+    res.redirect('/user/profile');
+}
+
+exports.getProfile = (req, res) => {
+    res.render('profile');
 }

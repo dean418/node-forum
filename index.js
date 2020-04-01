@@ -31,11 +31,14 @@ app.set('view engine', '.hbs');
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: false,
+    saveUninitialized: true,
     resave: false,
     store: new MongoStore({mongooseConnection: mongoose.connection}),
     genid: () => {
         return nanoid();
+    },
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2,
     }
 }));
 

@@ -6,6 +6,7 @@ const {isLoggedIn} = require('../controllers/auth');
 
 router.get('/signup', user.getSignup);
 router.get('/login', user.getLogin);
+router.get('/profile', isLoggedIn, user.getProfile)
 
 router.post('/signup', user.create);
 router.post('/login', user.postLogin);

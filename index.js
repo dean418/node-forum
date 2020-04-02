@@ -19,6 +19,18 @@ const user = require('./routes/user');
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
+}, async(err) => {
+    if (err) {
+        console.log(err);
+    }
+    //#### DEV ####\\
+    const UserModel = require('./models/user');
+
+    await Promise.all([
+        SessionModel.deleteMany({}),
+        UserModel.deleteMany({})
+    ])
+    //### END DEV ###\\
 });
 
 app.use(express.static(path.join(__dirname + 'public')));
@@ -45,15 +57,11 @@ app.use(session({
 }));
 
 app.use(async (req, res, next) => {
-    console.log(req.session);
-
     res.locals.loggedIn = await SessionModel.hasSession(req.sessionID);
     return next();
 })
 
 app.use('/', index);
-app.use('/user', user);``
+app.use('/user', user);
 
-app.listen(process.env.PORT, (err) => {
-    console.log(`server listening on port: ${process.env.PORT}`);
-});
+module.exports = app;

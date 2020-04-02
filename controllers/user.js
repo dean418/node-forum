@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const UserModel = require('../models/user');
 
 exports.getSignup = (req, res) => {
-    res.render('signup');
+    res.status(200).render('signup');
 }
 
 exports.create = async(req, res) => {
@@ -30,11 +30,12 @@ exports.create = async(req, res) => {
 
     req.session.userName = userName;
     req.session.save();
+    res.statusCode = 201;
     res.redirect('/');
 }
 
 exports.getLogin = (req, res) => {
-    res.render('login');
+    res.status(200).render('login');
 }
 
 exports.postLogin = async(req, res) => {
@@ -54,9 +55,9 @@ exports.postLogin = async(req, res) => {
     req.session.login = login;
     req.session.save();
 
-    res.redirect('/');
+    res.status(200).redirect('/');
 }
 
 exports.getProfile = (req, res) => {
-    res.render('profile');
+    res.status(200).render('profile');
 }

@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "directories": {
     "lib": "lib"
   },
@@ -18,9 +24,15 @@
     "nanoid": "^3.0.2",
     "node-fetch": "^2.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^25.2.6",
+    "jest-validate": "^25.2.6",
+    "supertest": "^4.0.2",
+    "supertest-session": "^4.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles",
+    "start": "nodemon startServer.js"
   },
   "keywords": [],
   "author": "",

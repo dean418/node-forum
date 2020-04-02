@@ -11,6 +11,8 @@ const app = express();
 
 require('dotenv').config();
 
+const SessionModel = require('./models/session');
+
 const index = require('./routes/index');
 const user = require('./routes/user');
 
@@ -31,7 +33,7 @@ app.set('view engine', '.hbs');
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false,
     store: new MongoStore({mongooseConnection: mongoose.connection}),
     genid: () => {
@@ -42,8 +44,15 @@ app.use(session({
     }
 }));
 
+app.use(async (req, res, next) => {
+    console.log(req.session);
+
+    res.locals.loggedIn = await SessionModel.hasSession(req.sessionID);
+    return next();
+})
+
 app.use('/', index);
-app.use('/user', user);
+app.use('/user', user);``
 
 app.listen(process.env.PORT, (err) => {
     console.log(`server listening on port: ${process.env.PORT}`);

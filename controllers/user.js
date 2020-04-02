@@ -9,6 +9,13 @@ exports.getSignup = (req, res) => {
 exports.create = async(req, res) => {
     let {userName, email, password} = req.body;
 
+    let existingUser = await UserModel.findByLogin(userName);
+
+    if (existingUser) {
+        res.render('signup', {error : `the provided credentials already exist`});
+        return;
+    }
+
     let hash = await bcrypt.hash(password, 12);
 
     let user = new UserModel({
@@ -19,23 +26,7 @@ exports.create = async(req, res) => {
         upVotes: 0
     });
 
-    let error = '';
-
-    let success = await user.save().catch(async (err) => {
-        let field = Object.keys(err.keyValue)[0];
-
-        if (field == 'userName') {
-            error = 'user-name'
-        } else {
-            error = 'email'
-        }
-        return false;
-    });
-
-    if (!success) {
-        res.render('signup', {error : `the provided ${error} already exists!`});
-        return;
-    }
+    user.save();
 
     req.session.userName = userName;
     req.session.save();
@@ -63,7 +54,7 @@ exports.postLogin = async(req, res) => {
     req.session.login = login;
     req.session.save();
 
-    res.redirect('/user/profile');
+    res.redirect('/');
 }
 
 exports.getProfile = (req, res) => {

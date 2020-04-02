@@ -6,3 +6,8 @@ exports.isLoggedIn = async (req, res, next) => {
     }
     res.redirect(303, '/user/login');
 }
+
+exports.logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+}

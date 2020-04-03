@@ -1,3 +1,3 @@
 exports.home = (req, res) => {
-    res.status(200).render('index');
+	res.status(200).render('index');
 }

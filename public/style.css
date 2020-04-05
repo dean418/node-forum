@@ -1,0 +1,160 @@
+* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+	--navy: #1d1f28;
+	--deep-gray: #282a36;
+	--light-gray: #9b9b9b;
+	--highlight: #3BBA9C;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	background-color: var(--navy);
+}
+
+h2, p {
+	margin: 0;
+}
+
+.container {
+	height: 94%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+nav {
+	width: 100%;
+	background-color: var(--deep-gray);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navList {
+	width: 30%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	list-style-type: none;
+}
+
+.navItem a {
+	padding: 16px 0;
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+}
+
+.navItem a:hover {
+	color: var(--highlight);
+}
+
+/* end nav */
+
+.formContainer {
+	width: 70%;
+	height: auto;
+	padding: 2%;
+	margin: auto;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--deep-gray);
+}
+
+.formInfo {
+	width: 45%;
+	height: 100%;
+	margin-right: 4%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	flex: 1 0 1;
+}
+
+.title {
+	margin: 5% 0;
+}
+
+form {
+	min-width: 45%;
+	height: 100%;
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 1;
+}
+
+.formGroup {
+	padding: 15px 0 0;
+	margin-top: 10px;
+	position: relative;
+	display: flex;
+}
+
+.formInput {
+	width: 100%;
+	padding: 7px 0;
+	color: #fff;
+	border: 0;
+	background: transparent;
+	border-bottom: 2px solid var(--light-gray);
+	outline: 0;
+}
+
+.formInput:focus {
+	padding-bottom: 6px;
+  	border-bottom: 2px solid var(--highlight);
+}
+
+.formInput:focus ~ .formLabel {
+	top: 0;
+	position: absolute;
+	display: block;
+	color: var(--highlight);
+}
+
+.formLabel {
+	position: absolute;
+	top: 0;
+	display: block;
+	color: #fff;
+}
+
+.submitBtn {
+	padding: 5%;
+	margin: 10% 0;
+	cursor: pointer;
+	border: none;
+	color: var(--highlight);
+	background-color: var(--navy);
+}
+
+.submitBtn:hover {
+	color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+	.formInfo {
+		width: auto;
+		height: auto;
+		margin-right: 0;
+	}
+
+	form {
+		height: auto;
+	}
+}

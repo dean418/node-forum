@@ -33,7 +33,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 	//### END DEV ###\\
 });
 
-app.use(express.static(path.join(__dirname + 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

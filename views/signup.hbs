@@ -1,3 +1,27 @@
-<h1>Signup</h1>
+<div class="formContainer">
+	<div class="formInfo">
+		<h2 class="title">Sign up</h2>
+		<p class="subText">Join a community of travellers, back-packers and explorers from around the world.</p>
+	</div>
+
+	<form action="/user/signup" method="post">
+		<div class="formGroup">
+			<input type="text" name="userName" class="formInput">
+			<label for="userName" class="formLabel">user name: </label>
+		</div>
+
+		<div class="formGroup">
+			<input type="email" name="email" class="formInput">
+			<label for="email" class="formLabel">E-mail: </label>
+		</div>
+
+		<div class="formGroup">
+			<input type="password" name="password" class="formInput">
+			<label for="password" class="formLabel">password: </label>
+		</div>
+
+		<input type="submit" value="Sign up" class="submitBtn">
+	</form>
+</div>
 
 <p>{{error}}</p>

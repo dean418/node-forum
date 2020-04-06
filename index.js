@@ -11,7 +11,7 @@ const app = express();
 
 require('dotenv').config();
 
-const SessionModel = require('./models/session');
+const SessionModel = require('./models/sessionModel');
 
 const index = require('./routes/index');
 const user = require('./routes/user');
@@ -24,7 +24,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 		console.log(err);
 	}
 	//#### DEV ####\\
-	const UserModel = require('./models/user');
+	const UserModel = require('./models/userModel');
 
 	await Promise.all([
 		SessionModel.deleteMany({}),

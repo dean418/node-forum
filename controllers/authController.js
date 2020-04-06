@@ -1,4 +1,4 @@
-const SessionModel = require('../models/session');
+const SessionModel = require('../models/sessionModel');
 
 exports.isLoggedIn = async (req, res, next) => {
 	if (await SessionModel.hasSession(req.sessionID)) {

@@ -1,8 +1,8 @@
 const {Router} = require('express');
 const router = Router();
 
-const user = require('../controllers/user');
-const {isLoggedIn, logout} = require('../controllers/auth');
+const user = require('../controllers/userController');
+const {isLoggedIn, logout} = require('../controllers/authController');
 
 router.get('/signup', user.getSignup);
 router.get('/login', user.getLogin);

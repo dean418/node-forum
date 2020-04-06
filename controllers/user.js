@@ -9,7 +9,7 @@ exports.getSignup = (req, res) => {
 exports.create = async (req, res) => {
 	let { userName, email, password } = req.body;
 
-	let existingUser = await UserModel.findByLogin(userName);
+	let existingUser = await UserModel.userExists(userName, email);
 
 	if (existingUser) {
 		res.render('signup', { error: `the provided credentials already exist` });

@@ -4,7 +4,12 @@
 		<li class="navItem"><a href="#">Popular</a></li>
 	</ul>
 	<ul class="navList">
-		<li class="navItem"><a href="/user/login">Login</a></li>
-		<li class="navItem"><a href="/user/signup">Signup</a></li>
+		{{#if loggedIn}}
+			<li class="navItem"><a href="/user/logout">Logout</a></li>
+			<li class="navItem"><a href="/user/profile">Profile</a></li>
+		{{else}}
+			<li class="navItem"><a href="/user/login">Login</a></li>
+			<li class="navItem"><a href="/user/signup">Signup</a></li>
+		{{/if}}
 	</ul>
 </nav>

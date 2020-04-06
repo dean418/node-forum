@@ -1,17 +1,17 @@
 <div class="formContainer">
-	<form action="/user/signup" method="post">
+	<form action="/user/login" method="post">
 		<h2 class="title">Login</h2>
 		<div class="formGroup">
-			<input type="text" name="userName" class="formInput">
-			<label for="userName" class="formLabel"><b>Username or password:</b></label>
+			<input type="text" name="login" class="formInput" required>
+			<label for="login" class="formLabel"><b>Username or email:</b></label>
 		</div>
 
 		<div class="formGroup">
-			<input type="password" name="password" class="formInput">
+			<input type="password" name="password" class="formInput" required>
 			<label for="password" class="formLabel"><b>Password:</b></label>
 		</div>
 
-		<input type="submit" value="Sign up" class="submitBtn">
+		<input type="submit" value="Login" class="submitBtn">
 	</form>
 </div>
 

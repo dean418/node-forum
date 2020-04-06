@@ -1,3 +1,18 @@
-<h1>Login</h1>
+<div class="formContainer">
+	<form action="/user/signup" method="post">
+		<h2 class="title">Login</h2>
+		<div class="formGroup">
+			<input type="text" name="userName" class="formInput">
+			<label for="userName" class="formLabel"><b>Username or password:</b></label>
+		</div>
+
+		<div class="formGroup">
+			<input type="password" name="password" class="formInput">
+			<label for="password" class="formLabel"><b>Password:</b></label>
+		</div>
+
+		<input type="submit" value="Sign up" class="submitBtn">
+	</form>
+</div>
 
 <p>{{error}}</p>

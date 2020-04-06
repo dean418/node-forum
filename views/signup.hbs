@@ -1,23 +1,19 @@
 <div class="formContainer">
-	<div class="formInfo">
-		<h2 class="title">Sign up</h2>
-		<p class="subText">Join a community of travellers, back-packers and explorers from around the world.</p>
-	</div>
-
 	<form action="/user/signup" method="post">
+		<h2 class="title">Signup</h2>
 		<div class="formGroup">
 			<input type="text" name="userName" class="formInput">
-			<label for="userName" class="formLabel">user name: </label>
+			<label for="userName" class="formLabel"><b>User name: </b></label>
 		</div>
 
 		<div class="formGroup">
 			<input type="email" name="email" class="formInput">
-			<label for="email" class="formLabel">E-mail: </label>
+			<label for="email" class="formLabel"><b>E-mail:</b></label>
 		</div>
 
 		<div class="formGroup">
 			<input type="password" name="password" class="formInput">
-			<label for="password" class="formLabel">password: </label>
+			<label for="password" class="formLabel"><b>Password:</b></label>
 		</div>
 
 		<input type="submit" value="Sign up" class="submitBtn">

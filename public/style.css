@@ -32,11 +32,13 @@ h2, p {
 
 nav {
 	width: 100%;
-	background-color: var(--deep-gray);
+	top: 0;
+	position: fixed;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	background-color: var(--deep-gray);
 }
 
 .navList {
@@ -63,7 +65,7 @@ nav {
 /* end nav */
 
 .formContainer {
-	width: 70%;
+	width: 60%;
 	height: auto;
 	padding: 2%;
 	margin: auto;
@@ -74,33 +76,23 @@ nav {
 	background-color: var(--deep-gray);
 }
 
-.formInfo {
-	width: 45%;
-	height: 100%;
-	margin-right: 4%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	flex: 1 0 1;
-}
-
 .title {
-	margin: 5% 0;
+	margin: 2% 0;
+	text-align: center;
+	font-size: 2em;
 }
 
 form {
 	min-width: 45%;
+	width: 100%;
 	height: 100%;
-	margin-left: 10px;
 	display: flex;
 	flex-direction: column;
-	flex: 1 0 1;
 }
 
 .formGroup {
 	padding: 15px 0 0;
-	margin-top: 10px;
+	margin-top: 20px;
 	position: relative;
 	display: flex;
 }
@@ -108,7 +100,9 @@ form {
 .formInput {
 	width: 100%;
 	padding: 7px 0;
+	margin-top: 5px;
 	color: #fff;
+	font-size: 1.1em;
 	border: 0;
 	background: transparent;
 	border-bottom: 2px solid var(--light-gray);
@@ -116,7 +110,6 @@ form {
 }
 
 .formInput:focus {
-	padding-bottom: 6px;
   	border-bottom: 2px solid var(--highlight);
 }
 
@@ -128,15 +121,18 @@ form {
 }
 
 .formLabel {
-	position: absolute;
 	top: 0;
+	position: absolute;
 	display: block;
+	font-size: 1.2em;
 	color: #fff;
 }
 
 .submitBtn {
-	padding: 5%;
-	margin: 10% 0;
+	width: auto;
+	padding: 2%;
+	margin: 3% 0 3% 0;
+	font-size: 1.3em;
 	cursor: pointer;
 	border: none;
 	color: var(--highlight);
@@ -145,16 +141,12 @@ form {
 
 .submitBtn:hover {
 	color: #fff;
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
-	.formInfo {
-		width: auto;
-		height: auto;
-		margin-right: 0;
-	}
-
 	form {
 		height: auto;
+		width: 100%;
 	}
 }

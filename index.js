@@ -15,6 +15,7 @@ const SessionModel = require('./models/sessionModel');
 
 const index = require('./routes/index');
 const user = require('./routes/user');
+const post = require('./routes/post');
 
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
@@ -63,5 +64,6 @@ app.use(async (req, res, next) => {
 
 app.use('/', index);
 app.use('/user', user);
+app.use('/post', post)
 
 module.exports = app;

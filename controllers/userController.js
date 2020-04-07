@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const UserModel = require('../models/userModel');
 
 exports.getSignup = (req, res) => {
-	res.status(200).render('signup');
+	res.render('signup');
 }
 
 exports.create = async (req, res) => {

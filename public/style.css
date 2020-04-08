@@ -69,11 +69,7 @@ nav {
 	width: 60%;
 	height: auto;
 	padding: 2%;
-	/* margin: auto; */
-	/* position: absolute; */
 	display: flex;
-	/* align-self: center;
-	justify-self: center; */
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
@@ -99,6 +95,7 @@ form {
 	margin-top: 20px;
 	position: relative;
 	display: flex;
+	flex-direction: row;
 }
 
 .formInput {
@@ -159,3 +156,35 @@ form {
 }
 
 /* end form */
+
+.fadedBackground {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	position: absolute;
+	opacity: .7;
+	background-color: var(--navy);
+	z-index: 1;
+}
+
+#postForm {
+	width: 60%;
+	height: auto;
+	padding: 2%;
+	top: 25%;
+	left: 18%;
+	position: absolute;
+	background-color: var(--deep-gray);
+	z-index: 2;
+}
+
+#imageInput {
+	display: none;
+}
+
+#addImage {
+	margin-right: 3%;
+	cursor: pointer;
+	float: right;
+	font-size: 24pt;
+}

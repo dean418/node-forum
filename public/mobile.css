@@ -15,7 +15,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-top: 1px solid var(--highlight);
+		border-top: 1px solid var(--light-gray);
 		/* background-color: rgba(0, 0, 0, 0); */
 	}
 
@@ -30,7 +30,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: 1px solid var(--highlight);
+		border: 1px solid var(--light-gray);
 		border-radius: 50%;
 		background-color: var(--deep-gray);
 	}
@@ -41,7 +41,7 @@
 	}
 
 	.icon {
-		color: var(--highlight);
+		color: var(--light-gray);
 		font-size: 30pt;
 	}
 
@@ -54,12 +54,6 @@
 		position: absolute;
 		right: 2%;
 	}
-
-
-
-	/* #user {
-
-	} */
 }
 
 @media only screen and (min-width: 600px) {

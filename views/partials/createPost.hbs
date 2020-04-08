@@ -1,0 +1,28 @@
+<div class="fadedBackground"></div>
+
+<div id="postForm">
+	<h1>Create Post</h1>
+
+	<form action="">
+		<label>
+			<input type="file" id="imageInput">
+			<ion-icon name="image-outline" id="addImage"></ion-icon>
+		</label>
+		<div class="formGroup">
+			<input type="text" name="title" class="formInput" required>
+			<label for="title" class="formLabel"><b>Title</b></label>
+		</div>
+
+		<div class="formGroup">
+			<input type="text" name="content" class="formInput" required>
+			<label for="content" class="formLabel"><b>Post</b></label>
+		</div>
+
+		<div class="formGroup">
+			<input type="text" name="tags" class="formInput" required>
+			<label for="tags" class="formLabel"><b>Tags (comma seperated)</b></label>
+		</div>
+
+		<input type="submit" value="Post" class="submitBtn">
+	</form>
+</div>

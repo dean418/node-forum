@@ -1,0 +1,69 @@
+@media only screen and (max-width: 600px) {
+	form {
+		height: auto;
+		width: 100%;
+	}
+
+	nav {
+		display: none;
+	}
+
+	#footer {
+		width: 100%;
+		bottom: 0;
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-top: 1px solid var(--highlight);
+		/* background-color: rgba(0, 0, 0, 0); */
+	}
+
+	#newPost {
+		width: 3vw;
+		height: 3vw;
+		padding: 5vw;
+		bottom: 6.5vw;
+		color: var(--highlight);
+		cursor: pointer;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid var(--highlight);
+		border-radius: 50%;
+		background-color: var(--deep-gray);
+	}
+
+	.iconParent {
+		cursor: pointer;
+		list-style-type: none;
+	}
+
+	.icon {
+		color: var(--highlight);
+		font-size: 30pt;
+	}
+
+	#home {
+		position: absolute;
+		left: 2%;
+	}
+
+	#user {
+		position: absolute;
+		right: 2%;
+	}
+
+
+
+	/* #user {
+
+	} */
+}
+
+@media only screen and (min-width: 600px) {
+	#footer {
+		display: none;
+	}
+}

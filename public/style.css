@@ -65,15 +65,18 @@ nav {
 
 /* end nav */
 
-.formContainer {
-	width: 60%;
+.form {
+	width: 85%;
 	height: auto;
 	padding: 2%;
+	background-color: var(--deep-gray);
+}
+
+.formContainer {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--deep-gray);
 }
 
 .title {
@@ -168,13 +171,9 @@ form {
 }
 
 #postForm {
-	width: 60%;
-	height: auto;
-	padding: 2%;
 	top: 25%;
-	left: 18%;
+	left: 6%;
 	position: absolute;
-	background-color: var(--deep-gray);
 	z-index: 2;
 }
 
@@ -186,5 +185,5 @@ form {
 	margin-right: 3%;
 	cursor: pointer;
 	float: right;
-	font-size: 24pt;
+	font-size: 28pt;
 }

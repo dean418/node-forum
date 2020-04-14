@@ -9,21 +9,24 @@ exports.getAll = async (req, res) => {
 }
 
 exports.create = (req, res) => {
-	let { title, content, tags, userID } = req.body;
+	let {title, content, tags} = req.body;
 	let imageID = nanoid();
 
 	req.files.image.mv(`./uploads/${imageID}`);
 
+	tags = tags.split(',');
+	tags = tags.map(tag => tag.trim());
+
 	let post = new PostModel({
 		title: title,
 		content: content,
-		tags: [tags],
+		tags: tags,
 		image: imageID,
-		userID: userID,
+		userID: req.session.userID,
 		createdOn: Date.now(),
 		upVotes: 0
 	});
 
-	// post.save();
+	post.save();
 	res.redirect('/');
 }

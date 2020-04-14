@@ -1,3 +1,5 @@
+const {nanoid} = require('nanoid');
+
 const PostModel = require('../models/postModel');
 
 exports.getAll = async (req, res) => {
@@ -7,18 +9,21 @@ exports.getAll = async (req, res) => {
 }
 
 exports.create = (req, res) => {
-	let { title, content, tags, image, userID } = req.body;
+	let { title, content, tags, userID } = req.body;
+	let imageID = nanoid();
+
+	req.files.image.mv(`./uploads/${imageID}`);
 
 	let post = new PostModel({
 		title: title,
 		content: content,
 		tags: [tags],
-		image: image,
+		image: imageID,
 		userID: userID,
 		createdOn: Date.now(),
 		upVotes: 0
 	});
 
-	post.save();
-	res.render('/');
+	// post.save();
+	res.redirect('/');
 }

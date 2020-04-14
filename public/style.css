@@ -168,11 +168,11 @@ form {
 }
 
 #postForm {
-	width: 60%;
+	width: 85%;
 	height: auto;
 	padding: 2%;
 	top: 25%;
-	left: 18%;
+	left: 6%;
 	position: absolute;
 	background-color: var(--deep-gray);
 	z-index: 2;

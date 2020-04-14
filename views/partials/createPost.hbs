@@ -3,9 +3,9 @@
 <div id="postForm">
 	<h1>Create Post</h1>
 
-	<form action="">
+	<form action="/post/create" enctype="multipart/form-data" method="post">
 		<label>
-			<input type="file" id="imageInput">
+			<input type="file" id="imageInput" name="image">
 			<ion-icon name="image-outline" id="addImage"></ion-icon>
 		</label>
 		<div class="formGroup">

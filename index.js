@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 const path = require('path');
 const { nanoid } = require('nanoid');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -37,6 +38,10 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(fileUpload({
+	useTempFiles: false,
+	preserveExtension: true
+}));
 
 app.engine('.hbs', hbs({
 	defaultLayout: 'layout',

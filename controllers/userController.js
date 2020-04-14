@@ -28,7 +28,7 @@ exports.create = async (req, res) => {
 
 	user.save();
 
-	req.session.userName = userName;
+	req.session.userID = user._id;
 	req.session.save();
 	res.statusCode = 201;
 	res.redirect('/');
@@ -52,7 +52,8 @@ exports.postLogin = async (req, res) => {
 		return;
 	}
 
-	req.session.login = login;
+
+	req.session.userID = user._id;
 	req.session.save();
 
 	res.status(200).redirect('/');

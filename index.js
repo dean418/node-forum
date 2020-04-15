@@ -30,9 +30,9 @@ mongoose.connect(process.env.DATABASE_URL, {
 	const PostModel = require('./models/postModel');
 
 	await Promise.all([
-		SessionModel.deleteMany({}),
-		UserModel.deleteMany({}),
-		PostModel.deleteMany({})
+		// SessionModel.deleteMany({}),
+		// UserModel.deleteMany({}),
+		// PostModel.deleteMany({})
 	]);
 	//### END DEV ###\\
 });

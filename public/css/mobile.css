@@ -20,19 +20,7 @@
 	}
 
 	#newPost {
-		width: 3vw;
-		height: 3vw;
-		padding: 5vw;
-		bottom: 6.5vw;
-		color: var(--highlight);
-		cursor: pointer;
 		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid var(--light-gray);
-		border-radius: 50%;
-		background-color: var(--deep-gray);
 	}
 
 	.iconParent {

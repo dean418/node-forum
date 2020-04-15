@@ -21,6 +21,21 @@ html, body {
 	display: none;
 }
 
+.roundBtn {
+	width: 3vw;
+	height: 3vw;
+	padding: 5vw;
+	bottom: 6.5vw;
+	color: var(--highlight);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--light-gray);
+	border-radius: 50%;
+	background-color: var(--deep-gray);
+}
+
 h2, p {
 	margin: 0;
 }
@@ -168,7 +183,7 @@ form {
 	height: 100%;
 	top: 0;
 	position: absolute;
-	opacity: .7;
+	opacity: .9;
 	background-color: var(--navy);
 	z-index: 1;
 }
@@ -192,4 +207,11 @@ form {
 	cursor: pointer;
 	float: right;
 	font-size: 28pt;
+	z-index: 2;
+}
+
+#closeBtn {
+	left: 43%;
+	position: absolute;
+	opacity: 1;
 }

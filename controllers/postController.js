@@ -5,9 +5,20 @@ const PostModel = require('../models/postModel');
 exports.getAll = async (req, res) => {
 	let posts = await PostModel.find({});
 
-	console.log(posts);
+	let postArr = [];
 
-	res.render('index', posts[0]);
+	for (const post of posts) {
+		postArr.push({
+			title: post.title,
+			content: post.content,
+			image: post.image,
+			createdOn: post.createdOn,
+			tags: post.tags,
+			upVotes: post.upVotes
+		});
+	}
+
+	res.render('index', {posts: postArr});
 }
 
 exports.create = (req, res) => {

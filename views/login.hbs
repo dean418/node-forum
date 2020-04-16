@@ -1,21 +1,24 @@
-<div class="form formContainer">
-	<form action="/user/login" method="post">
-		<h2 class="title">Login</h2>
-		<div class="formGroup">
-			<input type="text" name="login" class="formInput" required>
-			<label for="login" class="formLabel"><b>Username or email:</b></label>
-		</div>
 
-		<div class="formGroup">
-			<input type="password" name="password" class="formInput" required>
-			<label for="password" class="formLabel"><b>Password:</b></label>
-		</div>
+<div class="container">
+	<div class="form formContainer">
+		<form action="/user/login" method="post">
+			<h2 class="title">Login</h2>
+			<div class="formGroup">
+				<input type="text" name="login" class="formInput" required>
+				<label for="login" class="formLabel"><b>Username or email:</b></label>
+			</div>
 
-		<input type="submit" value="Login" class="submitBtn">
-	</form>
-	<br>
+			<div class="formGroup">
+				<input type="password" name="password" class="formInput" required>
+				<label for="password" class="formLabel"><b>Password:</b></label>
+			</div>
+
+			<input type="submit" value="Login" class="submitBtn">
+		</form>
+		<br>
+	</div>
+	<p><a href="/user/signup" class="formLink">Click here to <span>signup</span></a></p>
+
+
+	<p>{{error}}</p>
 </div>
-<p><a href="/user/signup" class="formLink">Click here to <span>signup</span></a></p>
-
-
-<p>{{error}}</p>

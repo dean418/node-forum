@@ -1,9 +1,7 @@
 <h1>The Travel Forum</h1>
 
-<ul>
+<div class="postContainer">
 	{{#each posts}}
-		{{#each this}}
-			<li>{{@key}} : {{this}}</li>
-		{{/each}}
+		{{> post}}
 	{{/each}}
-</ul>
+</div>

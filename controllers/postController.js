@@ -4,16 +4,19 @@ const PostModel = require('../models/postModel');
 
 exports.getAll = async (req, res) => {
 	let posts = await PostModel.find({});
-
 	let postArr = [];
 
 	for (const post of posts) {
+		let date = post.createdOn.getDate()
+		let month = post.createdOn.getMonth()+1
+		let year = post.createdOn.getFullYear();
+
 		postArr.push({
 			title: post.title,
 			content: post.content,
 			image: post.image,
 			userName: post.userName,
-			createdOn: post.createdOn,
+			createdOn: date + '/' + month + '/' + year,
 			tags: post.tags,
 			upVotes: post.upVotes
 		});

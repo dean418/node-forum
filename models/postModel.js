@@ -6,6 +6,7 @@ const post = new Schema({
 	image: {type: String, required:false},
 	tags: {type: Array, required: false},
 	userID: {type: String, required: true},
+	userName: {type: String, required: true},
 	createdOn: {type: Date, required: true},
 	upVotes: {type: Number, required: true}
 });

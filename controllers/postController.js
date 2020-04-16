@@ -12,6 +12,7 @@ exports.getAll = async (req, res) => {
 			title: post.title,
 			content: post.content,
 			image: post.image,
+			userName: post.userName,
 			createdOn: post.createdOn,
 			tags: post.tags,
 			upVotes: post.upVotes
@@ -36,6 +37,7 @@ exports.create = (req, res) => {
 		tags: tags,
 		image: imageID,
 		userID: req.session.userID,
+		userName: req.session.userName,
 		createdOn: Date.now(),
 		upVotes: 0
 	});

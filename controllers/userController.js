@@ -20,7 +20,7 @@ exports.create = async (req, res) => {
 
 	let user = new UserModel({
 		userName: userName,
-		email: email,
+		email: email.toLowerCase(),
 		password: hash,
 		createdOn: Date.now(),
 		upVotes: 0

@@ -3,12 +3,12 @@ const {nanoid} = require('nanoid');
 const PostModel = require('../models/postModel');
 
 exports.getAll = async (req, res) => {
-	let posts = await PostModel.find({});
+	let posts = await PostModel.find();
 	let postArr = [];
 
 	for (const post of posts) {
-		let date = post.createdOn.getDate()
-		let month = post.createdOn.getMonth()+1
+		let date = post.createdOn.getDate();
+		let month = post.createdOn.getMonth()+1;
 		let year = post.createdOn.getFullYear();
 
 		postArr.push({
@@ -23,6 +23,11 @@ exports.getAll = async (req, res) => {
 	}
 
 	res.render('index', {posts: postArr});
+}
+
+exports.getImage = (req, res) => {
+	let uplaodsPath = __dirname.substring(0, __dirname.lastIndexOf('/')) + '/uploads/';
+	res.sendFile(uplaodsPath + req.params.imageID);
 }
 
 exports.create = (req, res) => {

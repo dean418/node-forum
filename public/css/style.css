@@ -1,12 +1,14 @@
-* {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 :root {
 	--navy: #1D1F28;
 	--deep-gray: #282A36;
 	--light-gray: #9b9B9B;
+	--text: #DDD;
 	--highlight: #3BBA9C;
+}
+
+* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: var(--text);
 }
 
 html, body {
@@ -77,7 +79,6 @@ nav {
 .navItem a {
 	padding: 16px 0;
 	display: inline-block;
-	color: #fff;
 	text-decoration: none;
 }
 
@@ -127,7 +128,6 @@ form {
 	width: 100%;
 	padding: 7px 0;
 	margin-top: 5px;
-	color: #fff;
 	font-size: 1.1em;
 	border: 0;
 	background: transparent;
@@ -151,7 +151,6 @@ form {
 	position: absolute;
 	display: block;
 	font-size: 1em;
-	color: #fff;
 }
 
 .submitBtn {
@@ -166,13 +165,12 @@ form {
 }
 
 .submitBtn:hover {
-	color: #fff;
+	color: var(--text);
 	cursor: pointer;
 }
 
 .formLink {
 	padding-top: 2%;
-	color: #fff;
 	text-decoration: none;
 }
 
@@ -223,6 +221,7 @@ form {
 
 .postContainer {
 	width: 100%;
+	margin-bottom: 16%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -231,10 +230,16 @@ form {
 
 .post {
 	width: 90%;
+	margin-bottom: 4%;
 	padding: 3%;
+	color: var(--text);
 	display: flex;
 	flex-direction: column;
 	background-color: var(--deep-gray);
+}
+
+.postTitle, .postContent {
+	padding-bottom: 4%;
 }
 
 .postFooter {
@@ -249,4 +254,3 @@ form {
 	height: 40vw;
 	background-color: var(--light-gray);
 }
-

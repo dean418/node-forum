@@ -20,7 +20,9 @@ const post = require('./routes/post');
 
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+	useFindAndModify: false
 }, async (err) => {
 	if (err) {
 		console.log(err);

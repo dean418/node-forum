@@ -63,5 +63,5 @@ exports.postLogin = async (req, res) => {
 }
 
 exports.getProfile = (req, res) => {
-	res.status(200).render('profile');
+	res.render('profile', {userName: req.session.userName});
 }

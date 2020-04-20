@@ -4,25 +4,9 @@ const PostModel = require('../models/postModel');
 
 exports.getAll = async (req, res) => {
 	let posts = await PostModel.find();
-	let postArr = [];
+	let modifiedPosts = posts.map(post => post.toObject());
 
-	for (const post of posts) {
-		let date = post.createdOn.getDate();
-		let month = post.createdOn.getMonth()+1;
-		let year = post.createdOn.getFullYear();
-
-		postArr.push({
-			title: post.title,
-			content: post.content,
-			image: post.image,
-			userName: post.userName,
-			createdOn: date + '/' + month + '/' + year,
-			tags: post.tags,
-			upVotes: post.upVotes
-		});
-	}
-
-	res.render('index', {posts: postArr});
+	res.render('index', {posts: modifiedPosts});
 }
 
 exports.getImage = (req, res) => {
@@ -39,6 +23,11 @@ exports.create = (req, res) => {
 	tags = tags.split(',');
 	tags = tags.map(tag => tag.trim());
 
+	let date = new Date();
+	let day = date.getDate();
+	let month = date.getMonth()+1;
+	let year = date.getFullYear();
+
 	let post = new PostModel({
 		title: title,
 		content: content,
@@ -46,7 +35,7 @@ exports.create = (req, res) => {
 		image: imageID,
 		userID: req.session.userID,
 		userName: req.session.userName,
-		createdOn: Date.now(),
+		createdOn: day + '/' + month + '/' + year,
 		upVotes: 0
 	});
 

@@ -7,8 +7,10 @@ const post = new Schema({
 	tags: {type: Array, required: false},
 	userID: {type: String, required: true},
 	userName: {type: String, required: true},
-	createdOn: {type: Date, required: true},
-	upVotes: {type: Number, required: true}
+	createdOn: {type: String, required: true},
+	upVotes: {type: Number, required: true},
+}, {
+	toObject: {virtuals: true}
 });
 
 module.exports = model('posts', post);

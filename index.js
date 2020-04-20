@@ -34,7 +34,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 	await Promise.all([
 		// SessionModel.deleteMany({}),
 		// UserModel.deleteMany({}),
-		// PostModel.deleteMany({})
+		PostModel.deleteMany({})
 	]);
 	//### END DEV ###\\
 });

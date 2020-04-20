@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 
 const UserModel = require('../models/userModel');
+const PostModel = require('../models/postModel');
 
 exports.getSignup = (req, res) => {
 	res.render('signup');
@@ -32,8 +33,7 @@ exports.create = async (req, res) => {
 	req.session.userName = user.userName;
 	req.session.save();
 
-	res.statusCode = 201;
-	res.redirect('/');
+	res.status(200).redirect('/');
 }
 
 exports.getLogin = (req, res) => {
@@ -54,7 +54,6 @@ exports.postLogin = async (req, res) => {
 		return;
 	}
 
-
 	req.session.userID = user._id;
 	req.session.userName = user.userName;
 	req.session.save();
@@ -62,6 +61,8 @@ exports.postLogin = async (req, res) => {
 	res.status(200).redirect('/');
 }
 
-exports.getProfile = (req, res) => {
+exports.getProfile = async (req, res) => {
+	let userPosts = await PostModel.find({userID: req.userID});
+
 	res.render('profile', {userName: req.session.userName});
 }

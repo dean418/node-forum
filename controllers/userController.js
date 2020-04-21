@@ -62,7 +62,8 @@ exports.postLogin = async (req, res) => {
 }
 
 exports.getProfile = async (req, res) => {
-	let userPosts = await PostModel.find({userID: req.userID});
+	let userPosts = await PostModel.find({userID: req.session.userID});
+	let modifiedPosts = userPosts.map(post => post.toObject());
 
-	res.render('profile', {userName: req.session.userName});
+	res.render('profile', {userName: req.session.userName, posts: modifiedPosts});
 }

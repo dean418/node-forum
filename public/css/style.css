@@ -250,3 +250,30 @@ form {
 	height: 40vw;
 	background-color: var(--light-gray);
 }
+
+/* end post */
+
+#profileCard {
+	width: 100%;
+	height: 22%;
+	display: flex;
+	flex-direction: column;
+	justify-items: flex-end;
+	background-color: var(--highlight);
+}
+
+#profileBody {
+	width: 100%;
+	height: 55%;
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--deep-gray);
+}
+
+
+#profileName {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14pt;
+}

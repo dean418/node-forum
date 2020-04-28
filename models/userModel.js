@@ -6,6 +6,8 @@ const user = Schema({
 	password: { type: String, required: true, unique: false },
 	createdOn: { type: Date, required: true, unique: false },
 	upVotes: { type: Number, required: true, unique: false }
+}, {
+	toObject: {virtuals: true}
 });
 
 user.statics.findByLogin = async function (login) {

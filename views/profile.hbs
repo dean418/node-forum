@@ -1,12 +1,21 @@
 <div id="profileCard">
 	<div id="profileBody">
 		<div id="profileImage"></div>
-		<p id="profileName">{{userName}}</p>
+		<p id="profileName">{{user.userName}}</p>
 
 		<div id="userInfo">
-			<div class="info posts"> posts</div>
-			<div class="info upvotes">upvotes</div>
-			<div class="info comments">comments</div>
+			<div class="info">
+				<p>posts</p>
+				<p>{{totalPosts}}</p>
+			</div>
+			<div class="info">
+				<p>upvotes</p>
+				<p>{{user.upVotes}}</p>
+			</div>
+			<div class="info">
+				<p>comments</p>
+				<p>{{totalComments}}</p>
+			</div>
 		</div>
 	</div>
 </div>

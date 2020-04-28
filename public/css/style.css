@@ -292,5 +292,14 @@ form {
 	margin-top: auto;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
+	/* justify-content: space-evenly; */
+}
+
+.info {
+	width: 25%;
+	padding: 0 10px;
+	text-align: center;
+	border-left: 1px solid var(--navy);
+	border-right: 1px solid var(--navy);
 }

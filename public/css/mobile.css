@@ -23,16 +23,6 @@
 		position: relative;
 	}
 
-	.iconParent {
-		cursor: pointer;
-		list-style-type: none;
-	}
-
-	.icon {
-		color: var(--light-gray);
-		font-size: 30pt;
-	}
-
 	#home {
 		position: absolute;
 		left: 2%;

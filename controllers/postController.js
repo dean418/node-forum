@@ -42,3 +42,10 @@ exports.create = (req, res) => {
 	post.save();
 	res.redirect('/');
 }
+
+exports.getFullPost = async (req, res) => {
+	let postData = await PostModel.findOne({_id: req.params.postID});
+
+	res.locals.fullPost = 'true';
+	res.render('fullPost', {posts: {postData: postData.toObject()}});
+}

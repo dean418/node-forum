@@ -38,6 +38,20 @@ html, body {
 	background-color: var(--deep-gray);
 }
 
+.iconParent {
+	cursor: pointer;
+	list-style-type: none;
+}
+
+.icon {
+	color: var(--light-gray);
+	font-size: 30pt;
+}
+
+.small {
+	font-size: 1.4em;
+}
+
 h2, p {
 	margin: 0;
 }
@@ -217,7 +231,7 @@ form {
 
 .postContainer {
 	width: 100%;
-	margin: 16% 0;
+	margin-top: 4%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -226,7 +240,8 @@ form {
 
 .post {
 	width: 90%;
-	margin-bottom: 4%;
+	height: 50%;
+	margin-bottom: 2%;
 	padding: 3%;
 	color: var(--text);
 	display: flex;
@@ -238,7 +253,7 @@ form {
 	padding-bottom: 4%;
 }
 
-.postFooter {
+.postInfo {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -251,18 +266,55 @@ form {
 	background-color: var(--light-gray);
 }
 
+.postFooter {
+	margin-top: 3%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
 /* end post */
+
+#commentSection {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#commentBox {
+	width: 92%;
+	padding: 2%;
+	background-color: var(--deep-gray);
+}
+
+#commentInput {
+	width: 98%;
+	padding: 1%;
+	border: none;
+	background-color: var(--navy);
+	outline: none;
+	resize: none;
+}
+
+#commentInput:required {
+	box-shadow: none;
+}
+
+/* end comment */
 
 #profileCard {
 	width: 100%;
-	height: 22%;
-	display: flex;
+	height: 25%;
 	position: relative;
+	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 	background-color: var(--deep-gray);
 }
 
 #profileImage {
+	top: 1vw;
 	left: 38vw;
 	width: 25vw;
 	height: 25vw;
@@ -280,7 +332,6 @@ form {
 #userInfo {
 	width: 100%;
 	padding: 2% 0;
-	margin-top: auto;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

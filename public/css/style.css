@@ -38,6 +38,14 @@ html, body {
 	background-color: var(--deep-gray);
 }
 
+.btn {
+	padding: 2%;
+	cursor: pointer;
+	border: none;
+	color: var(--highlight);
+	background-color: var(--navy);
+}
+
 .iconParent {
 	cursor: pointer;
 	list-style-type: none;
@@ -165,13 +173,8 @@ form {
 
 .submitBtn {
 	width: auto;
-	padding: 2%;
 	margin-top: 3%;
 	font-size: 1.3em;
-	cursor: pointer;
-	border: none;
-	color: var(--highlight);
-	background-color: var(--navy);
 }
 
 .submitBtn:hover {
@@ -297,8 +300,20 @@ form {
 	resize: none;
 }
 
+#commentInput:focus {
+	height: 6em;
+}
+
 #commentInput:required {
 	box-shadow: none;
+}
+
+.commentSubmit {
+	width: 25vw;
+	margin-left: auto;
+	margin-top: 2%;
+	right: 0;
+	/* background-color: var(--navy); */
 }
 
 /* end comment */

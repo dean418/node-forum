@@ -49,3 +49,7 @@ exports.getFullPost = async (req, res) => {
 	res.locals.fullPost = 'true';
 	res.render('fullPost', {posts: {postData: postData.toObject()}});
 }
+
+exports.comment = (req, res) => {
+	res.redirect(`/post/${req.params.postID}`);
+}

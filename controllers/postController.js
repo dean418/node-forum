@@ -1,12 +1,14 @@
 const {nanoid} = require('nanoid');
+const {formatDate} = require('../lib/formatDate');
 
 const PostModel = require('../models/postModel');
+const CommentModel = require('../models/commentModel');
 
 exports.getAll = async (req, res) => {
 	let posts = await PostModel.find();
-	let modifiedPosts = posts.map(post => post.toObject());
+	let postObject = posts.map(post => post.toObject());
 
-	res.render('index', {posts: modifiedPosts});
+	res.render('index', {posts: postObject});
 }
 
 exports.getImage = (req, res) => {
@@ -23,11 +25,6 @@ exports.create = (req, res) => {
 	tags = tags.split(',');
 	tags = tags.map(tag => tag.trim());
 
-	let date = new Date();
-	let day = date.getDate();
-	let month = date.getMonth()+1;
-	let year = date.getFullYear();
-
 	let post = new PostModel({
 		title: title,
 		content: content,
@@ -35,7 +32,7 @@ exports.create = (req, res) => {
 		image: imageID,
 		userID: req.session.userID,
 		userName: req.session.userName,
-		createdOn: day + '/' + month + '/' + year,
+		createdOn: formatDate(),
 		upVotes: 0
 	});
 
@@ -45,11 +42,24 @@ exports.create = (req, res) => {
 
 exports.getFullPost = async (req, res) => {
 	let postData = await PostModel.findOne({_id: req.params.postID});
+	let comments = await CommentModel.find({postID: req.params.postID});
+
+	let commentObject = comments.map(comment => comment.toObject());
 
 	res.locals.fullPost = 'true';
-	res.render('fullPost', {posts: {postData: postData.toObject()}});
+	res.render('fullPost', {comments: commentObject, posts: {postData: postData.toObject()}});
 }
 
 exports.comment = (req, res) => {
+	let comment = new CommentModel({
+		postID: req.params.postID,
+		parentID: req.body.parentID,
+		postedOn: formatDate(),
+		author: req.session.userID,
+		comment: req.body.comment
+	});
+
+	comment.save();
+
 	res.redirect(`/post/${req.params.postID}`);
 }

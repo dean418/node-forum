@@ -3,6 +3,7 @@
 	--deep-gray: #282A36;
 	--light-gray: #9b9B9B;
 	--text: #DDD;
+	--dim-text: #AAA;
 	--highlight: #3BBA9C;
 }
 
@@ -257,10 +258,15 @@ form {
 }
 
 .postInfo {
-	width: 100%;
 	display: flex;
+	color: var(--dim-text);
 	flex-direction: row;
 	justify-content: space-between;
+	font-size: .8em;
+}
+
+.postInfo > p {
+	color: var(--dim-text);
 }
 
 .postImage {
@@ -281,6 +287,7 @@ form {
 #commentSection {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -313,7 +320,15 @@ form {
 	margin-left: auto;
 	margin-top: 2%;
 	right: 0;
-	/* background-color: var(--navy); */
+}
+
+.comment {
+	width: 92%;
+	padding: 2%;
+	margin-top: 2%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--deep-gray);
 }
 
 /* end comment */

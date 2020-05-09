@@ -300,6 +300,7 @@ form {
 
 #commentInput {
 	width: 98%;
+	max-height: 10em;
 	padding: 1%;
 	border: none;
 	background-color: var(--navy);
@@ -308,7 +309,7 @@ form {
 }
 
 #commentInput:focus {
-	height: 6em;
+	height: 8em;
 }
 
 #commentInput:required {
@@ -329,6 +330,10 @@ form {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--deep-gray);
+}
+
+.comment:last-of-type {
+	margin-bottom: 10vh;
 }
 
 /* end comment */

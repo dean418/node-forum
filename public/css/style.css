@@ -336,6 +336,15 @@ form {
 	margin-bottom: 10vh;
 }
 
+.reply {
+	margin-top: 2%;
+	cursor: pointer;
+}
+
+.reply:hover {
+	color: var(--highlight);
+}
+
 /* end comment */
 
 #profileCard {

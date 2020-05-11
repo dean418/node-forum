@@ -11,6 +11,7 @@
 	<img class="postImage" src="http://localhost:3000/post/image/{{this.image}}">
 	<div class="postFooter">
 		{{#if @root.fullPost}}
+			<p class="postInfo reply">leave a comment</p>
 		{{else}}
 			<li class="iconParent"><a href="/post/{{this.id}}"><ion-icon name="chatbox" class="icon small"></ion-icon></a></li>
 		{{/if}}

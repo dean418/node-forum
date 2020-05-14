@@ -12,14 +12,15 @@ const moveCommentBox = (parent) => {
 
 for (const comment of comments) {
 	comment.lastElementChild.onclick = function () {
+		let commentID = this.parentElement.dataset.commentid;
+		parentInput.value = commentID;
+		commentBox.action = `/post/${post.dataset.postid}/${commentID}`;
 		moveCommentBox(this.parentElement);
-		parentInput.value = post.dataset.postid;
-		commentBox.action = `/post/${post.dataset.postid}/${this.parentElement.dataset.commentid}`;
 	}
 }
 
 commentBtn.onclick = function() {
-	moveCommentBox(this.parentElement.parentElement);
 	parentInput.value = '';
 	commentBox.action = `/post/${post.dataset.postid}/`;
+	moveCommentBox(this.parentElement.parentElement);
 };

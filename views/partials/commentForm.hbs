@@ -1,7 +1,7 @@
 <div class="hidden" id="commentBox">
 	<form action="/post/{{posts.postData.id}}/" method="post" id="commentForm">
-		{{!--  --}}
 		<textarea name="comment" form="commentForm" placeholder="Leave a comment here!" id="commentInput" rows="4" required></textarea>
 		<input type="submit" value="post" class="btn commentSubmit">
+		<input type="hidden" name="parentID" id="parentInput">
 	</form>
 </div>

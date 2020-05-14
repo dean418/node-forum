@@ -11,10 +11,5 @@ const toggleVisibility = (event, element) => {
 	}
 }
 
-// const showCommentBox = (event) => {
-// 	commentBtn.parentElement.parentElement.appendChild(commentBox);
-// 	toggleVisibility(null, commentBox);
-// }
-
 newPostBtn.onclick = toggleVisibility;
 fadedBackground.onclick = toggleVisibility;

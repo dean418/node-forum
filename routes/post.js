@@ -9,6 +9,6 @@ router.get('/image/:imageID', post.getImage);
 router.get('/:postID', post.getFullPost);
 
 router.post('/create', auth.isLoggedIn, post.create);
-router.post('/:postID', auth.isLoggedIn, post.comment)
-
+router.post('/:postID', auth.isLoggedIn, post.comment);
+router.post('/:postID/:commentID', auth.isLoggedIn, post.comment);
 module.exports = router;

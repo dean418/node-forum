@@ -5,14 +5,10 @@
 </div>
 
 <div id="commentSection">
-	<div id="commentBox">
-		<form action="/post/{{posts.postData.id}}" method="post" id="commentForm">
-			<textarea name="comment" form="commentForm" placeholder="Leave a comment here!" id="commentInput" rows="1" required></textarea>
-			<input type="submit" value="post" class="btn commentSubmit">
-		</form>
-	</div>
-
+	{{> commentForm}}
 	{{#each comments}}
 		{{> comment}}
 	{{/each}}
 </div>
+
+<script src="/js/comment.js"></script>

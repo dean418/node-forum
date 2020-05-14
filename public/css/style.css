@@ -235,7 +235,7 @@ form {
 
 .postContainer {
 	width: 100%;
-	margin-top: 4%;
+	margin-top: 2%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -294,6 +294,7 @@ form {
 
 #commentBox {
 	width: 92%;
+	margin-top: 2%;
 	padding: 2%;
 	background-color: var(--deep-gray);
 }
@@ -306,10 +307,6 @@ form {
 	background-color: var(--navy);
 	outline: none;
 	resize: none;
-}
-
-#commentInput:focus {
-	height: 8em;
 }
 
 #commentInput:required {

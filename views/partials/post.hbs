@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post" data-postid="{{this.id}}">
 	<div>
 		<h2 class="postTitle">{{this.title}}</h2>
 		<p class="postContent">{{this.content}}</p>
@@ -8,10 +8,10 @@
 			<p>{{this.createdOn}}</p>
 		</div>
 	</div>
-	<img class="postImage" src="http://localhost:3000/post/image/{{this.image}}">
+	<img class="postImage" src="http://localhost:3000/post/image/{{this.image}}" alt="user post image">
 	<div class="postFooter">
 		{{#if @root.fullPost}}
-			<p class="postInfo reply">leave a comment</p>
+			<p class="postInfo reply" id="comment">leave a comment</p>
 		{{else}}
 			<li class="iconParent"><a href="/post/{{this.id}}"><ion-icon name="chatbox" class="icon small"></ion-icon></a></li>
 		{{/if}}

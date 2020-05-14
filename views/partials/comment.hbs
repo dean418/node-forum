@@ -1,9 +1,10 @@
-<div class="comment">
+<div class="comment" data-commentid="{{this.id}}">
 	<div class="postInfo">
 		<p>{{@root.posts.postData.userName}}</p>
 		<p>{{this.postedOn}}</p>
 	</div>
-	{{this.comment}}
+
+	<p>{{this.comment}}</p>
 
 	<p class="postInfo reply">reply</p>
 </div>

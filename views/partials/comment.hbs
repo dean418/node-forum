@@ -8,3 +8,11 @@
 
 	<p class="postInfo reply">reply</p>
 </div>
+
+	{{!-- {{#if this.replies}} --}}
+			<div class="indent">
+				{{#each this.replies}}
+					{{> comment}}
+				{{/each}}
+			</div>
+		{{!-- {{/if}} --}}

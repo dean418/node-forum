@@ -1,6 +1,6 @@
 const {nanoid} = require('nanoid');
 const {formatDate} = require('../lib/formatDate');
-
+const {nestObject} = require('../lib/nestObject')
 const PostModel = require('../models/postModel');
 const CommentModel = require('../models/commentModel');
 
@@ -40,13 +40,6 @@ exports.create = (req, res) => {
 	res.redirect('/');
 }
 
-const nestObject = (commentArr, id=null) => {
-	return commentArr
-	  .filter(comment => comment['parentID'] == id)
-	  .map(comment => ({...comment, replies: nestObject(commentArr, comment.id)
-	}));
-}
-
 exports.getFullPost = async (req, res) => {
 	let postData = await PostModel.findOne({_id: req.params.postID});
 	let comments = await CommentModel.find({postID: req.params.postID});
@@ -60,8 +53,6 @@ exports.getFullPost = async (req, res) => {
 }
 
 exports.comment = (req, res) => {
-	console.log(req.params);
-
 	let comment = new CommentModel({
 		postID: req.params.postID,
 		parentID: req.params.commentID,

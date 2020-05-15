@@ -40,20 +40,31 @@ exports.create = (req, res) => {
 	res.redirect('/');
 }
 
+const nestObject = (commentArr, id=null) => {
+	return commentArr
+	  .filter(comment => comment['parentID'] == id)
+	  .map(comment => ({...comment, replies: nestObject(commentArr, comment.id)
+	}));
+}
+
 exports.getFullPost = async (req, res) => {
 	let postData = await PostModel.findOne({_id: req.params.postID});
 	let comments = await CommentModel.find({postID: req.params.postID});
 
-	let commentObject = comments.map(comment => comment.toObject());
+	let commentArr = comments.map(comment => comment.toObject());
+
+	let nestedComments = nestObject(commentArr);
 
 	res.locals.fullPost = 'true';
-	res.render('fullPost', {comments: commentObject, posts: {postData: postData.toObject()}});
+	res.render('fullPost', {comments: nestedComments, posts: {postData: postData.toObject()}});
 }
 
 exports.comment = (req, res) => {
+	console.log(req.params);
+
 	let comment = new CommentModel({
 		postID: req.params.postID,
-		parentID: req.body.parentID,
+		parentID: req.params.commentID,
 		postedOn: formatDate(),
 		author: req.session.userID,
 		comment: req.body.comment

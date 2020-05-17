@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const user = Schema({
 	userName: { type: String, required: true, unique: true },
@@ -28,6 +28,28 @@ user.statics.userExists = async function(userName, email) {
 	}
 
 	return user;
+}
+
+user.statics.getProfile = async function(userID) {
+	let userObject = await this.aggregate([
+		{
+			$lookup: {
+			from: 'comments',
+			localField: '_id',
+			foreignField: 'author',
+			as: 'commentCount'
+		}},
+		{
+			$match: {_id: Types.ObjectId(userID)}
+		},
+		{
+			$addFields: {'commentCount': {
+				$size: '$commentCount'
+			}}
+		}
+	]);
+
+	return userObject
 }
 
 module.exports = model('users', user);

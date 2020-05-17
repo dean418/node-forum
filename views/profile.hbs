@@ -1,6 +1,6 @@
 <div id="profileCard">
 		<div id="profileImage"></div>
-		<p id="profileName">{{user.userName}}</p>
+		<p id="profileName">{{userInfo.userName}}</p>
 
 		<div id="userInfo">
 			<div class="info">
@@ -9,17 +9,17 @@
 			</div>
 			<div class="info">
 				<p>upvotes</p>
-				<p>{{user.upVotes}}</p>
+				<p>{{userInfo.upVotes}}</p>
 			</div>
 			<div class="info">
 				<p>comments</p>
-				<p>{{totalComments}}</p>
+				<p>{{userInfo.commentCount}}</p>
 			</div>
 		</div>
 </div>
 
 <div class="postContainer">
-	{{#each posts}}
+	{{#each userPosts}}
 		{{> post}}
 	{{/each}}
 </div>

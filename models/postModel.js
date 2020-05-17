@@ -15,7 +15,8 @@ const post = new Schema({
 
 post.statics.getPosts = async function () {
 	let postObject = await this.aggregate([
-		{$lookup: {
+		{
+			$lookup: {
 			from: 'comments',
 			localField: '_id',
 			foreignField: 'postID',

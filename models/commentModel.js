@@ -4,7 +4,7 @@ const comment = new Schema({
 	postID: {type: ObjectId, required: true},
 	parentID: {type: String, required: false},
 	postedOn: {type: String, required: true},
-	author: {type: String, required: true},
+	author: {type: ObjectId, required: true},
 	comment: {type: String, required: true},
 },
 {

@@ -6,8 +6,6 @@ const CommentModel = require('../models/commentModel');
 
 exports.getAll = async (req, res) => {
 	let posts = await PostModel.getPosts()
-	console.log(posts);
-
 	res.render('index', {posts});
 }
 

@@ -1,7 +1,7 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model, ObjectId} = require('mongoose');
 
 const comment = new Schema({
-	postID: {type: String, required: true},
+	postID: {type: ObjectId, required: true},
 	parentID: {type: String, required: false},
 	postedOn: {type: String, required: true},
 	author: {type: String, required: true},

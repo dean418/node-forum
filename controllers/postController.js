@@ -5,10 +5,10 @@ const PostModel = require('../models/postModel');
 const CommentModel = require('../models/commentModel');
 
 exports.getAll = async (req, res) => {
-	let posts = await PostModel.find();
-	let postObject = posts.map(post => post.toObject());
+	let posts = await PostModel.getPosts()
+	console.log(posts);
 
-	res.render('index', {posts: postObject});
+	res.render('index', {posts});
 }
 
 exports.getImage = (req, res) => {

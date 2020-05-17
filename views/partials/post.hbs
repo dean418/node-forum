@@ -1,4 +1,4 @@
-<div class="post" data-postid="{{this.id}}">
+<div class="post" data-postid="{{this._id}}">
 	<div>
 		<h2 class="postTitle">{{this.title}}</h2>
 		<p class="postContent">{{this.content}}</p>
@@ -13,7 +13,12 @@
 		{{#if @root.fullPost}}
 			<p class="postInfo reply" id="comment">leave a comment</p>
 		{{else}}
-			<li class="iconParent"><a href="/post/{{this.id}}"><ion-icon name="chatbox" class="icon small"></ion-icon></a></li>
+			<li class="iconParent">
+				<a href="/post/{{this._id}}" class="commentLink">
+					<ion-icon name="chatbox" class="icon small"></ion-icon>
+					<p class="postInfo">{{this.commentCount}}</p>
+				</a>
+			</li>
 		{{/if}}
 	</div>
 </div>

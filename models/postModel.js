@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, ObjectId } = require('mongoose');
 
 const post = new Schema({
 	title: {type: String, required: true},
@@ -12,5 +12,23 @@ const post = new Schema({
 }, {
 	toObject: {virtuals: true}
 });
+
+post.statics.getPosts = async function () {
+	let postObject = await this.aggregate([
+		{$lookup: {
+			from: 'comments',
+			localField: '_id',
+			foreignField: 'postID',
+			as: 'commentCount'
+		}},
+		{
+			$addFields: {'commentCount': {
+				$size: '$commentCount'
+			}}
+		}
+	]);
+
+	return postObject
+}
 
 module.exports = model('posts', post);

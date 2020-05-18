@@ -62,9 +62,9 @@ exports.postLogin = async (req, res) => {
 }
 
 exports.getProfile = async (req, res) => {
-	let userInfo = await UserModel.getProfile(req.session.userID);
+	let userInfo = await UserModel.getProfile(req.params.userName);
 	let allPosts = await PostModel.getPosts();
-	let userPosts = allPosts.filter(post => post.userID == req.session.userID)
+	let userPosts = allPosts.filter(post => post.userName == req.params.userName)
 
 	res.render('profile', {userPosts, totalPosts: userPosts.length, userInfo: userInfo[0]});
 }

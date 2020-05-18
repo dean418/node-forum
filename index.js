@@ -67,7 +67,13 @@ app.use(session({
 }));
 
 app.use(async (req, res, next) => {
-	res.locals.loggedIn = await SessionModel.hasSession(req.sessionID);
+	let loggedIn = await SessionModel.hasSession(req.sessionID);
+	res.locals.loggedIn = loggedIn;
+
+	if (loggedIn) {
+		res.locals.userName = req.session.userName;
+	}
+
 	return next();
 })
 

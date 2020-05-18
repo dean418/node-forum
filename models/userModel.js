@@ -30,7 +30,7 @@ user.statics.userExists = async function(userName, email) {
 	return user;
 }
 
-user.statics.getProfile = async function(userID) {
+user.statics.getProfile = async function(userName) {
 	let userObject = await this.aggregate([
 		{
 			$lookup: {
@@ -40,7 +40,7 @@ user.statics.getProfile = async function(userID) {
 			as: 'commentCount'
 		}},
 		{
-			$match: {_id: Types.ObjectId(userID)}
+			$match: {userName}
 		},
 		{
 			$addFields: {'commentCount': {

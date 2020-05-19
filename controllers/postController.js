@@ -65,7 +65,7 @@ exports.comment = (req, res) => {
 }
 
 exports.delete = async (req, res) => {
-	let post = await PostModel.findOne({userID: req.session.userID});
+	let post = await PostModel.findOne({userID: req.session.userID, _id: req.params.postID});
 
 	if (post) {
 		await PostModel.deleteOne({_id: post._id});

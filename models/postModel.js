@@ -15,7 +15,7 @@ const post = new Schema({
 });
 
 post.pre('deleteOne', async function(next) {
-	await CommentModel.deleteMany({postID: this.getFilter()._id})
+	await CommentModel.deleteMany({postID: this.getFilter()._id});
 	next();
 });
 

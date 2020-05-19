@@ -375,24 +375,31 @@ form {
 }
 
 .menuContainer {
-	right: 70%;
+	right: 9vw;
+	width: 34vw;
 	padding: 0 20%;
 	color: var(--text);
 	position: absolute;
+	border: 2px solid var(--deep-gray);
 	background-color: var(--navy);
 	z-index: 2;
 }
 
-.menu {
+#menu {
 	margin-top: 10px;
 }
 
-.menu > li {
+.option {
 	text-align: left;
-	margin-bottom: 10px;
+	font-size: .9em;
+	padding-bottom: 10px;
 }
 
-.menu > li:hover {
+.option:last-of-type {
+	padding-bottom: 0;
+}
+
+.option:hover > a{
 	color: var(--highlight);
 }
 

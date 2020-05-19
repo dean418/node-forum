@@ -34,8 +34,7 @@ post.statics.getPosts = async function () {
 			}}
 		}
 	]);
-
-	return postObject
+	return postObject;
 }
 
 module.exports = model('posts', post);

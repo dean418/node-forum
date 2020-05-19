@@ -1,4 +1,5 @@
 const { Schema, model, ObjectId } = require('mongoose');
+const CommentModel = require('./commentModel');
 
 const post = new Schema({
 	title: {type: String, required: true},
@@ -11,6 +12,11 @@ const post = new Schema({
 	upVotes: {type: Number, required: true},
 }, {
 	toObject: {virtuals: true}
+});
+
+post.pre('deleteOne', async function(next) {
+	await CommentModel.deleteMany({postID: this.getFilter()._id})
+	next();
 });
 
 post.statics.getPosts = async function () {

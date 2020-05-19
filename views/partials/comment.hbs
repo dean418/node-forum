@@ -1,18 +1,15 @@
 <div class="comment" data-commentid="{{this.id}}">
 	<div class="postInfo">
-		<p>{{@root.posts.postData.userName}}</p>
+		<a href="/user/{{this.author}}" class="profileLink">{{this.author}}</a>
 		<p>{{this.postedOn}}</p>
 	</div>
-
 	<p>{{this.comment}}</p>
 
 	<p class="postInfo reply">reply</p>
 </div>
 
-	{{!-- {{#if this.replies}} --}}
-			<div class="indent">
-				{{#each this.replies}}
-					{{> comment}}
-				{{/each}}
-			</div>
-		{{!-- {{/if}} --}}
+<div class="indent">
+	{{#each this.replies}}
+		{{> comment}}
+	{{/each}}
+</div>

@@ -6,8 +6,8 @@ const auth = require('../controllers/authController');
 
 router.get('/signup', user.getSignup);
 router.get('/login', user.getLogin);
+router.get('/logout', auth.logout);
 router.get('/:userName', user.getProfile); //auth.isLoggedIn
-router.get('/logout', auth.isLoggedIn, auth.logout);
 
 router.post('/signup', user.create);
 router.post('/login', user.postLogin);

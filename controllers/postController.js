@@ -55,11 +55,25 @@ exports.comment = (req, res) => {
 		postID: req.params.postID,
 		parentID: req.params.commentID,
 		postedOn: formatDate(),
-		author: req.session.userID,
+		author: req.session.userName,
 		comment: req.body.comment
 	});
 
 	comment.save();
 
 	res.redirect(`/post/${req.params.postID}`);
+}
+
+exports.delete = async (req, res) => {
+	let post = await PostModel.findOne({userID: req.session.userID});
+
+	if (post) {
+		await PostModel.deleteOne({_id: post._id});
+	}
+
+	if (req.headers.referer.includes('post')) {
+		res.redirect('/');
+		return;
+	}
+	res.redirect(req.headers.referer);
 }

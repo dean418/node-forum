@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "start": "nodemon startServer.js"
+    "start": "node startServer.js"
   },
   "keywords": [],
   "author": "",

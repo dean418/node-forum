@@ -1,29 +1,26 @@
+<div class="form formContainer">
+	<form action="/user/signup" method="post">
+		<h2 class="title">Signup</h2>
+		<div class="formGroup">
+			<input type="text" name="userName" class="formInput" required>
+			<label for="userName" class="formLabel"><b>User name: </b></label>
+		</div>
 
-<div class="container">
-	<div class="form formContainer">
-		<form action="/user/signup" method="post">
-			<h2 class="title">Signup</h2>
-			<div class="formGroup">
-				<input type="text" name="userName" class="formInput" required>
-				<label for="userName" class="formLabel"><b>User name: </b></label>
-			</div>
+		<div class="formGroup">
+			<input type="email" name="email" class="formInput" required>
+			<label for="email" class="formLabel"><b>E-mail:</b></label>
+		</div>
 
-			<div class="formGroup">
-				<input type="email" name="email" class="formInput" required>
-				<label for="email" class="formLabel"><b>E-mail:</b></label>
-			</div>
+		<div class="formGroup">
+			<input type="password" name="password" class="formInput" required>
+			<label for="password" class="formLabel"><b>Password:</b></label>
+		</div>
 
-			<div class="formGroup">
-				<input type="password" name="password" class="formInput" required>
-				<label for="password" class="formLabel"><b>Password:</b></label>
-			</div>
-
-			<input type="submit" value="Sign up" class="btn submitBtn">
-		</form>
-	</div>
-
-	<p><a href="/user/login" class="formLink">Click here to <span>login</span></a></p>
-
-
-	<p>{{error}}</p>
+		<input type="submit" value="Sign up" class="btn submitBtn">
+	</form>
 </div>
+
+<p><a href="/user/login" class="formLink">Click here to <span>login</span></a></p>
+
+
+<p>{{error}}</p>

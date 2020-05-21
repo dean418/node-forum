@@ -4,21 +4,18 @@ const {nestObject} = require('../lib/nestObject')
 const PostModel = require('../models/postModel');
 const CommentModel = require('../models/commentModel');
 
+const aws = require('../lib/aws');
+
 exports.getAll = async (req, res) => {
-	let posts = await PostModel.getPosts()
+	let posts = await PostModel.getPosts();
 	res.render('index', {posts});
 }
 
-exports.getImage = (req, res) => {
-	let uplaodsPath = __dirname.substring(0, __dirname.lastIndexOf('/')) + '/uploads/';
-	res.sendFile(uplaodsPath + req.params.imageID);
-}
-
-exports.create = (req, res) => {
+exports.create = async(req, res) => {
 	let {title, content, tags} = req.body;
 	let imageID = nanoid();
 
-	req.files.image.mv(`./uploads/${imageID}`);
+	let location = await aws.upload(imageID, req.files.image.data);
 
 	tags = tags.split(',');
 	tags = tags.map(tag => tag.trim());
@@ -28,6 +25,7 @@ exports.create = (req, res) => {
 		content: content,
 		tags: tags,
 		image: imageID,
+		imageLocation: location,
 		userID: req.session.userID,
 		userName: req.session.userName,
 		createdOn: formatDate(),

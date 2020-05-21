@@ -4,7 +4,8 @@ const CommentModel = require('./commentModel');
 const post = new Schema({
 	title: {type: String, required: true},
 	content: {type: String, required: true},
-	image: {type: String, required:false},
+	image: {type: String, required: false},
+	imageLocation: {type: String, required: false},
 	tags: {type: Array, required: false},
 	userID: {type: String, required: true},
 	userName: {type: String, required: true},

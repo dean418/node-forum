@@ -222,6 +222,7 @@ form {
 #postForm {
 	width: 85%;
 	height: auto;
+	margin-top: 0;
 	padding: 2%;
 	top: 25%;
 	left: 6%;

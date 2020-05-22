@@ -13,9 +13,12 @@ exports.getAll = async (req, res) => {
 
 exports.create = async(req, res) => {
 	let {title, content, tags} = req.body;
-	let imageID = nanoid();
+	let location, imageID = null;
 
-	let location = await aws.upload(imageID, req.files.image.data);
+	if (req.files) {
+		imageID = nanoid();
+		location = await aws.upload(imageID, req.files.image.data);
+	}
 
 	tags = tags.split(',');
 	tags = tags.map(tag => tag.trim());
